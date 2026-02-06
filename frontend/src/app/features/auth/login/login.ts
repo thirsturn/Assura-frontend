@@ -7,5 +7,18 @@ import { Component } from "@angular/core";
 })
 
 export class LoginComponent {
-    
+    isLoggingIn: boolean = false;
+
+    // wrap the existing login logic
+    async handleLogin(){
+        this.isLoggingIn = true;
+
+        try {
+            // login login
+        } catch (error){
+            console.error(error);
+            this.isLoggingIn = false; // stop spinning
+            
+        }
+    }
 }

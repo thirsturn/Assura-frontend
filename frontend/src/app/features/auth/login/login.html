@@ -34,7 +34,16 @@
 
             <a href="#" class="forgot-password">Forgot Password</a>
 
-            <button type="submit" class="login-button">Login</button>
+            <img 
+                src="assets/images/logo.svg"
+                [class.login-spin]="isLoggingIn"
+                class="existing-logo-class">
+
+            <button type="submit" class="login-button" 
+                (click)="handleLogin()"
+                [disabled]="isLoggingIn">
+                Login
+            </button>
 
             <p class="signup-text">
                 Don't have an account <a href="#" class="signup-link">Sign Up</a>
