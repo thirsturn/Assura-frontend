@@ -1,3 +1,10 @@
+<!-- Fullscreen Spinner Overlay -->
+@if (isLoggingIn) {
+<div class="spinner-overlay" role="alert" aria-live="polite" aria-label="Logging in, please wait">
+    <img src="/assets/images/logo.svg" alt="" class="spinner-logo" aria-hidden="true">
+</div>
+}
+
 <div class="login-container">
     <!-- Decorative circles -->
     <div class="circle circle-top"></div>
@@ -17,7 +24,8 @@
                         <path d="M4 20c0-4 4-6 8-6s8 2 8 6" />
                     </svg>
                 </span>
-                <input type="text" [(ngModel)]="loginData.username" placeholder="Username" class="input-field" />
+                <input type="text" [(ngModel)]="loginData.username" name="username" placeholder="Username"
+                    class="input-field" />
             </div>
 
             <div class="input-group">
@@ -29,19 +37,15 @@
                         <path d="M8 11V7a4 4 0 0 1 8 0v4" />
                     </svg>
                 </span>
-                <input type="password" [(ngModel)]="loginData.password" placeholder="Password" class="input-field" />
+                <input type="password" [(ngModel)]="loginData.password" name="password" placeholder="Password"
+                    class="input-field" />
             </div>
 
             <a href="#" class="forgot-password">Forgot Password</a>
 
-            <img 
-                src="assets/images/logo.svg"
-                [class.login-spin]="isLoggingIn"
-                class="existing-logo-class">
 
-            <button type="submit" class="login-button" 
-                (click)="handleLogin()"
-                [disabled]="isLoggingIn">
+
+            <button type="submit" class="login-button" (click)="onSubmit()" [disabled]="isLoggingIn">
                 Login
             </button>
 

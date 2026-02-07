@@ -1,10 +1,12 @@
 import { Component } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 import { Auth } from "../../../core/services/auth";
 
 @Component({
     selector: "appLogin",
     templateUrl: "./login.html",
-    styleUrls: ["./login.css"]
+    styleUrls: ["./login.css"],
+    imports: [FormsModule]
 })
 
 export class LoginComponent {
@@ -14,31 +16,23 @@ export class LoginComponent {
         password: '',
     };
 
-    constructor(private auth: Auth) {}
+    constructor(private auth: Auth) { }
 
-    onSubmit(){
+    onSubmit() {
         console.log('Logging in...', this.loginData);
 
         this.auth.login(this.loginData).subscribe({
             next: (response) => {
-                console.log('Login successful!', response);// TODO: store token
+                console.log('Login successful!', response);
+                // Show spinner on successful login
+                this.isLoggingIn = true;
+                // TODO: store token and navigate
             },
-             error: (err) => {
-                console.log('Login Failed', err); // TODO: show error message
-             }
-        })
-    }
-
-    // wrap the existing login logic
-    async handleLogin(){
-        this.isLoggingIn = true;
-
-        try {
-            // login login
-        } catch (error){
-            console.error(error);
-            this.isLoggingIn = false; // stop spinning
-            
-        }
+            error: (err) => {
+                console.log('Login Failed', err);
+                this.isLoggingIn = false;
+                // TODO: show error message
+            }
+        });
     }
 }
