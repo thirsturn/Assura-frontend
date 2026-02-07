@@ -1,0 +1,117 @@
+.register-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+/* Decorative circles */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+}
+
+.circle-top {
+    width: 350px;
+    height: 350px;
+    background-color: #004777;
+    top: -100px;
+    left: -100px;
+}
+
+.circle-bottom {
+    width: 300px;
+    height: 300px;
+    background-color: #FF7700;
+    bottom: -80px;
+    right: -80px;
+}
+
+/* Register box */
+.register-box {
+    background-color: #EFD28D;
+    padding: 40px 50px;
+    border-radius: 16px;
+    text-align: center;
+    min-width: 350px;
+    max-width: 400px;
+    z-index: 1;
+    box-shadow: -4px 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.title {
+    font-size: 1.8rem;
+    color: #004777;
+    margin: 0 0 8px 0;
+    font-weight: 400;
+}
+
+.title .bold {
+    font-weight: 700;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: #333;
+    margin: 0 0 25px 0;
+}
+
+/* Form */
+.register-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.input-group {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    border-radius: 10px;
+    background: #D9D9D9;
+}
+
+.input-icon {
+    font-size: 1rem;
+    margin-right: 10px;
+    opacity: 0.6;
+}
+
+.input-field {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px 0;
+    font-size: 0.95rem;
+    outline: none;
+    background: #D9D9D9;
+}
+
+.input-field::placeholder {
+    color: #666;
+}
+
+.register-button {
+    background-color: #004777;
+    color: #ffffff;
+    border: none;
+    padding: 12px;
+    border-radius: 4px;
+    font-size: 1rem;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s ease;
+}
+
+.register-button:hover {
+    background-color: #003366;
+}
+
+.register-button:focus {
+    outline: none;
+    box-shadow: inset 0 0 0 2px #003366;
+}
